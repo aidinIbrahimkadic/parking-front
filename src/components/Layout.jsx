@@ -4,13 +4,19 @@ export const GlobalStyle = createGlobalStyle`
 :root { color-scheme: dark; }
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
-body {
+body {  
 margin: 0;
+padding: 0;
 background: ${({ theme }) => theme.colors.bg};
 color: ${({ theme }) => theme.colors.text};
 font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
 }
 a { color: ${({ theme }) => theme.colors.accent}; text-decoration: none; }
+
+input[type="datetime-local"].themed-datetime {
+  color-scheme: light;
+  accent-color: #334155;
+}
 `;
 
 export const Shell = styled.div`

@@ -10,21 +10,21 @@ const Wrap = styled.div`
 
 const Chip = styled.button`
   appearance: none;
-  border: 1px solid ${({ active }) => (active ? "#c7d2fe" : "#e2e8f0")};
-  background: ${({ active }) =>
-    active ? "linear-gradient(135deg, #eef2ff, #f0f9ff)" : "#fff"};
+  border: 1px solid ${({ $active }) => ($active ? "#c7d2fe" : "#e2e8f0")};
+  background: ${({ $active }) =>
+    $active ? "linear-gradient(135deg, #eef2ff, #f0f9ff)" : "#fff"};
   color: #0f172a;
   padding: 8px 12px;
   border-radius: 999px;
   font-size: 14px;
   cursor: pointer;
   transition: 140ms ease;
-  box-shadow: ${({ active }) =>
-    active ? "0 6px 14px rgba(99,102,241,.12)" : "0 2px 6px rgba(2,6,23,.05)"};
+  box-shadow: ${({ $active }) =>
+    $active ? "0 6px 14px rgba(99,102,241,.12)" : "0 2px 6px rgba(2,6,23,.05)"};
 
   &:hover {
-    background: ${({ active }) =>
-      active ? "linear-gradient(135deg, #e5e7ff, #e6f7ff)" : "#f8fafc"};
+    background: ${({ $active }) =>
+      $active ? "linear-gradient(135deg, #e5e7ff, #e6f7ff)" : "#f8fafc"};
   }
 `;
 
@@ -62,7 +62,7 @@ export default function ParkingChips({ options = [], value = [], onChange }) {
         <Chip
           key={opt.value}
           type="button"
-          active={value.includes(opt.value)}
+          $active={value.includes(opt.value)}
           onClick={() => toggle(opt.value)}
           aria-pressed={value.includes(opt.value)}
         >

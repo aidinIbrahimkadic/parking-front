@@ -32,6 +32,7 @@ export default function CopyButton({ text, children = "Kopiraj" }) {
         backgroundColor: "#2e5d63",
         border: "none",
         outline: "none",
+        color: "#fff",
         padding: ".3rem .6rem",
         borderRadius: "10px",
       }}

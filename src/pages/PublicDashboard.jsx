@@ -361,7 +361,7 @@
 // }
 
 import React from "react";
-import { VStack } from "../components/Layout.jsx";
+import { Panel, VStack } from "../components/Layout.jsx";
 import ErrorBoundary from "../components/ErrorBoundary.jsx";
 
 import LivePanel from "../components/dashboard/LivePanel.jsx";
@@ -386,17 +386,19 @@ export default function PublicDashboard() {
       <ErrorBoundary label="LivePanel">
         <LivePanel />
       </ErrorBoundary>
-      <ErrorBoundary label="MetadataPanel">
-        <MetadataPanel />
-      </ErrorBoundary>
-
-      <ErrorBoundary label="OpenDataPanel">
-        <OpenDataPanel />
-      </ErrorBoundary>
 
       <ErrorBoundary label="DocumentsPanel">
         <DocumentsPanel />
       </ErrorBoundary>
+      <Panel>
+        <ErrorBoundary label="MetadataPanel">
+          <MetadataPanel />
+        </ErrorBoundary>
+
+        <ErrorBoundary label="OpenDataPanel">
+          <OpenDataPanel />
+        </ErrorBoundary>
+      </Panel>
 
       <ErrorBoundary label="ChartsSection">
         <ChartsSection filters={filters} />

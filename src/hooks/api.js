@@ -335,7 +335,7 @@ export function usePeaks(filters = {}, range = {}) {
 export function useMetadata() {
   return useQuery({
     queryKey: ["metadata"],
-    queryFn: () => fetchJson("/metadata"),
+    queryFn: () => fetchJson("/site-metadata"),
     staleTime: 5 * 60 * 1000,
   });
 }

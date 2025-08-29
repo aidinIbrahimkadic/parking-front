@@ -21,6 +21,7 @@ const Wrap = styled.section`
     linear-gradient(180deg, #ffffff, #f8fafc);
   border: 1px solid rgba(15, 23, 42, 0.06);
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.06);
+  margin-bottom: 1rem;
 `;
 
 const Header = styled.div`
@@ -60,6 +61,7 @@ const Desc = styled.p`
 const MetaRow = styled.div`
   display: flex;
   gap: 8px;
+  margin-bottom: 0.5rem;
   flex-wrap: wrap;
   align-items: center;
 `;
@@ -89,7 +91,6 @@ const Muted = styled.span`
 export default function MetadataBanner({ filters = {} }) {
   // 1) Metapodaci (naslov/opis/licenca/fields)
   const { data: meta } = useMetadata();
-
   // 2) Last updated iz istog skupa kao “live”:
   //    ograničavamo na Haustor/Dom/Musala preko parkingIdIn
   const filtered = React.useMemo(
@@ -110,7 +111,7 @@ export default function MetadataBanner({ filters = {} }) {
   const description =
     meta?.description ||
     "Petnaestominutni zapisi zauzetosti javnih parkinga (broj mjesta, slobodna mjesta, zauzetost).";
-  const license = meta?.license || "—";
+  // const license = meta?.license || "—";
   const fieldsCount = Array.isArray(meta?.fields) ? meta.fields.length : 0;
 
   // Uskladi s “live”: max(createdAt) preko tri parkinga
@@ -142,12 +143,12 @@ export default function MetadataBanner({ filters = {} }) {
       {description ? <Desc>{description}</Desc> : null}
 
       <MetaRow>
+        <span>Kontakt: {meta?.contact_email}</span>
+      </MetaRow>
+      <MetaRow>
         <Badge>
           Zadnje ažuriranje podataka: <strong>{last}</strong>
         </Badge>
-        {fieldsCount > 0 ? (
-          <Muted>• Broj polja u skupu: {fieldsCount}</Muted>
-        ) : null}
       </MetaRow>
     </Wrap>
   );

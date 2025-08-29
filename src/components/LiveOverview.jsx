@@ -252,7 +252,7 @@ const Progress = styled.div`
   & > span {
     display: block;
     height: 100%;
-    width: ${({ pct }) => Math.max(0, Math.min(100, pct))}%;
+    width: ${({ $pct }) => Math.max(0, Math.min(100, $pct))}%;
     background: linear-gradient(90deg, #ef4444, #f59e0b, #22c55e);
     filter: saturate(1.1);
     transition: width 0.5s ease;
@@ -414,7 +414,7 @@ export default function LiveOverview({ baseFilters = {} }) {
         <Card>
           <h4>Popunjenost</h4>
           <strong>{Math.round((view.occupancyRatio || 0) * 100)}%</strong>
-          <Progress pct={Math.round((view.occupancyRatio || 0) * 100)}>
+          <Progress $pct={Math.round((view.occupancyRatio || 0) * 100)}>
             <span />
           </Progress>
           <Subtle>
