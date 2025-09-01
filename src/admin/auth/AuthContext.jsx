@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useMemo, useState } from "react";
 
 const API_BASE =
   import.meta.env.VITE_API_BASE?.replace(/\/+$/, "") ||
-  "http://localhost:4000/api/v1";
+  "https://open-parking.opcina-tesanj.ba/api/v1";
 
 // Stabilan inicijalni shape zbog HMR-a (vite-plugin-react fast refresh)
 const AuthContext = React.createContext({

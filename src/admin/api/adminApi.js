@@ -3,7 +3,7 @@ import { queryClient } from "../../hooks/queryClient.js";
 
 const API_BASE =
   import.meta.env.VITE_API_BASE?.replace(/\/+$/, "") ||
-  "http://localhost:4000/api/v1";
+  "https://open-parking.opcina-tesanj.ba/api/v1";
 
 // === Token helper (kompatibilan sa starim i novim ključem) ===
 function getToken() {
