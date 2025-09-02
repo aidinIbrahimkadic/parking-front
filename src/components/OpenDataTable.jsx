@@ -132,7 +132,6 @@ const Input = styled.input`
 `;
 
 const DateInput = styled(Input)`
-  /* boja teksta unutar polja datuma */
   &::-webkit-datetime-edit,
   &::-webkit-datetime-edit-fields-wrapper,
   &::-webkit-datetime-edit-text,
@@ -145,12 +144,9 @@ const DateInput = styled(Input)`
   &::-webkit-datetime-edit-ampm-field {
     color: #0f172a;
   }
-
-  /* indikator (ikonica kalendara) – prebojavanje preko filtera */
   &::-webkit-calendar-picker-indicator {
     opacity: 0.9;
     cursor: pointer;
-    /* ljubičasto-zelenkasti ton (brandy) */
     filter: invert(28%) sepia(62%) saturate(1800%) hue-rotate(235deg)
       brightness(96%) contrast(96%);
     transition: opacity 120ms ease, filter 120ms ease;
@@ -319,7 +315,7 @@ export default function OpenDataTable() {
   const { data: historyData, isFetching: fetchingHistory } =
     useSnapshots(historyParams);
 
-  // COLUMNS
+  // COLUMNS (bez specijalnih mjesta)
   const columns = useMemo(
     () => [
       col.accessor("parkingName", {
@@ -329,8 +325,6 @@ export default function OpenDataTable() {
       col.accessor("numberOfParkingPlaces", { header: "Ukupno mjesta" }),
       col.accessor("totalNumberOfRegularPlaces", { header: "Ukupno (reg.)" }),
       col.accessor("freeNumberOfRegularPlaces", { header: "Slobodno (reg.)" }),
-      col.accessor("totalNumberOfSpecialPlaces", { header: "Ukupno (spec.)" }),
-      col.accessor("freeNumberOfSpecialPlaces", { header: "Slobodno (spec.)" }),
       col.accessor("createdAt", {
         header: "Ažurirano",
         cell: (i) => new Date(i.getValue()).toLocaleString(),
@@ -540,8 +534,6 @@ export default function OpenDataTable() {
                 <th>Ukupno mjesta</th>
                 <th>Ukupno (reg.)</th>
                 <th>Slobodno (reg.)</th>
-                <th>Ukupno (spec.)</th>
-                <th>Slobodno (spec.)</th>
                 <th
                   className="sortable"
                   onClick={toggleCreatedAtSort}
@@ -559,7 +551,7 @@ export default function OpenDataTable() {
             <tbody>
               {rows.length === 0 ? (
                 <tr>
-                  <td colSpan={7} style={{ padding: 12, textAlign: "center" }}>
+                  <td colSpan={5} style={{ padding: 12, textAlign: "center" }}>
                     {(isHistory ? fetchingHistory : fetchingLast)
                       ? "Učitavanje…"
                       : "Nema podataka"}

@@ -87,7 +87,12 @@ const Muted = styled.span`
   color: #64748b;
   font-size: 12px;
 `;
-
+const PlainBlock = styled.p`
+  white-space: pre-line; /* poštuj \n i \r\n, normalizuj višak razmaka */
+  margin: 8px 0 14px;
+  color: #334155;
+  line-height: 1.55;
+`;
 export default function MetadataBanner({ filters = {} }) {
   // 1) Metapodaci (naslov/opis/licenca/fields)
   const { data: meta } = useMetadata();
@@ -140,7 +145,7 @@ export default function MetadataBanner({ filters = {} }) {
         <Title>{title}</Title>
       </Header>
 
-      {description ? <Desc>{description}</Desc> : null}
+      {description ? <PlainBlock>{description}</PlainBlock> : null}
 
       <MetaRow>
         <span>Kontakt: {meta?.contact_email}</span>
