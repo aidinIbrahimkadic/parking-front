@@ -323,7 +323,7 @@ export default function OpenDataTable() {
         cell: (i) => i.getValue(),
       }),
       col.accessor("numberOfParkingPlaces", { header: "Ukupno mjesta" }),
-      col.accessor("totalNumberOfRegularPlaces", { header: "Ukupno (reg.)" }),
+      // col.accessor("totalNumberOfRegularPlaces", { header: "Ukupno (reg.)" }),
       col.accessor("freeNumberOfRegularPlaces", { header: "Slobodno (reg.)" }),
       col.accessor("createdAt", {
         header: "Ažurirano",
@@ -532,8 +532,8 @@ export default function OpenDataTable() {
               <tr>
                 <th>Naziv parkinga</th>
                 <th>Ukupno mjesta</th>
-                <th>Ukupno (reg.)</th>
-                <th>Slobodno (reg.)</th>
+                {/* <th>Ukupno (reg.)</th> */}
+                <th>Slobodno</th>
                 <th
                   className="sortable"
                   onClick={toggleCreatedAtSort}
